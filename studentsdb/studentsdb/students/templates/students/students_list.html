@@ -48,9 +48,15 @@
 
     <div class="col-xs-12">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="/">Студенти</a></li>
-        <li role="presentation"><a href="/journal">Відвідування</a></li>
-        <li role="presentation"><a href="/groups">Групи</a></li>
+        <li role="presentation" class="active">
+          <a href="{% url 'home' %}">Студенти</a>
+        </li>
+        <li role="presentation">
+          <a href="/journal">Відвідування</a>
+        </li>
+        <li role="presentation">
+          <a href="{% url 'groups' %}">Групи</a>
+        </li>
       </ul>
     </div>
 
@@ -70,7 +76,8 @@
         <h2>База Студентів</h2>
 
         <!-- Add Student Button -->
-        <a href="/students/add" type="button" class="btn btn-primary" >
+        <a href="{% url 'students_add' %}" 
+          type="button" class="btn btn-primary" >
           Додати Студента
         </a>
 
@@ -91,8 +98,14 @@
               <td>1</td>
               <td><img class="img-circle" height="30" width="30"
               src="./img/st1.jpg"</td>
-              <td><a title="Редагувати" href="/students/1/edit">Корост</a></td>
-              <td><a title="Редагувати" href="/students/1/edit">Андрій</a></td>
+              <td>
+                <a title="Редагувати" 
+                  href="{% url 'students_edit' sid=1 %}">Корост</a>
+              </td>
+              <td>
+                <a title="Редагувати" 
+                  href="{% url 'students_edit' 1 %}">Андрій</a>
+              </td>
               <td>2123</td>
               <td>
                 <div class="dropdown">
@@ -103,10 +116,12 @@
                   <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="/students/1/edit">Редагувати</a></li>
+                  <li>
+                    <a href="{% url 'students_edit' sid=1 %}">Редагувати</a>
+                  </li>
                   <li><a href="/journal/1">Відвідування</a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="/students/1/delete">Видалити</a></li>
+                  <li><a href="{% url 'students_delete' 1 %}">Видалити</a></li>
                   </ul>
                 </div>
               </td>
@@ -116,10 +131,12 @@
               <td><img class="img-circle" height="30" width="30"
               src="./img/st2.jpg"</td>
               <td>
-                <a title="Редагувати" href="/students/2/edit">Подоба</a>
+                <a title="Редагувати" 
+                  href="{% url 'students_edit' sid=2 %}">Подоба</a>
               </td>
               <td>
-                <a title="Редагувати" href="/students/2/edit">Віталій</a>
+                <a title="Редагувати" 
+                  href="{% url 'students_edit' 2 %}">Віталій</a>
               </td>
               <td>254</td>
               <td>
@@ -131,10 +148,14 @@
                   <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="/students/2/edit">Редагувати</a></li>
+                  <li>
+                    <a href="{% url 'students_edit' sid=2 %}">Редагувати</a>
+                  </li>
                   <li><a href="/journal/2">Відвідування</a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="/students/2/delete">Видалити</a></li>
+                  <li>
+                    <a href="{% url 'students_delete' 2 %}">Видалити</a>
+                  </li>
                   </ul>
                 </div>
               </td>
@@ -144,9 +165,13 @@
               <td><img class="img-circle" height="30" width="30"
               src="./img/st3.jpg"</td>
               <td>
-                <a title="Редагувати" href="/students/3/edit">Притула</a>
+                <a title="Редагувати" 
+                  href="{% url 'students_edit' sid=3 %}">Притула</a>
               </td>
-              <td><a title="Редагувати" href="/students/3/edit">Тарас</a></td>
+              <td>
+                <a title="Редагувати" 
+                  href="{% url 'students_edit' 3 %}">Тарас</a>
+              </td>
               <td>5332</td>
               <td>
                 <div class="dropdown">
@@ -157,10 +182,12 @@
                   <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="/students/3/edit">Редагувати</a></li>
+                  <li><a href="{% url 'students_edit' sid=3 %}">Редагувати</a></li>
                   <li><a href="/journal/3">Відвідування</a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="/students/3/delete">Видалити</a></li>
+                  <li>
+                    <a href="{% url 'students_delete' 3 %}">Видалити</a>
+                  </li>
                   </ul>
                 </div>
               </td>
