@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -5,6 +6,34 @@ from django.http import HttpResponse
 
 
 def students_list(request):
+    students = (
+        {
+            'id': 1,
+            'first_name': u'Віталій',
+            'last_name': u'Подоба',
+            'ticket': 235,
+            'image': 'img/st1.jpg'
+        },
+        {
+            'id': 2,
+            'first_name': u'Корост',
+            'last_name': u'Андрій',
+            'ticket': 2123,
+            'image': 'img/st2.jpg'
+        },
+        {
+            'id': 3,
+            'first_name': u'Притула',
+            'last_name': u'Тарас',
+            'ticket': 5332,
+            'image': 'img/st3.jpg'
+        }
+    )
+    return render(
+        request, 'students/students_list.html',
+        {'students': students}
+    )
+
     return render(
         request, 'students/students_list.html', {}
     )
