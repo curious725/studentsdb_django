@@ -61,8 +61,8 @@ WSGI_APPLICATION = 'studentsdb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '../..', 'db.sqlite3'),
+        'ENGINE': '',
+        'NAME': '',
     }
 }
 
@@ -93,3 +93,8 @@ TEMPLATE_CONTEXT_PROCESSORS = \
         "django.core.context_processors.request",
         "studentsdb.context_processors.students_proc"
     )
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
