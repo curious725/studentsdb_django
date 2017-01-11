@@ -8,8 +8,8 @@
 
 {% block content %}
 
-<form action="{% url 'students_add' %}" method="post"
-  enctype="multipart/form/data">
+<form  action="{% url 'students_add' %}"  method="post"
+  enctype="multipart/form-data">
 
   {% csrf_token %}
 
