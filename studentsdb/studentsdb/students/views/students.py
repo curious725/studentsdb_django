@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from ..models import Student
+from ..models import Student, Group
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -39,8 +39,9 @@ def students_list(request):
 
 
 def students_add(request):
-    return HttpResponse(
-        '<h1>Student Add Form</h1>'
+    return render(
+        request, 'students/students_add.html',
+        {'groups': Group.objects.all().order_by('title')}
     )
 
 
