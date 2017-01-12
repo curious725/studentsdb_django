@@ -114,8 +114,10 @@ def students_add(request):
                 student.save()
                 # Повертаємо користувача до списку студентів
                 return HttpResponseRedirect(
-                    u"{}?status_message=Студента успішно додано!".format(
-                        reverse('home')
+                    u"{}?status_message=Студента {} {} {} успішно додано!".
+                    format(
+                        reverse('home'), data['first_name'],
+                        data['last_name'], data['middle_name']
                     )
                 )
 
