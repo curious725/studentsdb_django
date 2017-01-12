@@ -14,13 +14,13 @@
   {% csrf_token %}
 
   <div>
-    <label for="first_name">Ім'я</label>
+    <label for="first_name">Ім'я*</label>
     <input type="text" value="" name="first_name" id="first_name"
       placeholder="Введіть ваше ім'я">
   </div>
 
   <div>
-    <label for="last_name">Прізвище</label>
+    <label for="last_name">Прізвище*</label>
     <input type="text" value="" name="last_name" id="last_name"
       placeholder="Введіть ваше прізвище">
   </div>
@@ -32,7 +32,7 @@
   </div>
 
   <div>
-    <label for="birthday">День народження</label>
+    <label for="birthday">День народження*</label>
     <input type="text" value="" name="birthday" id="birthday"
       placeholder="Напр. 1990-01-01">
   </div>
@@ -43,13 +43,13 @@
   </div>
 
   <div>
-    <label for="ticket">Білет</label>
+    <label for="ticket">Білет*</label>
     <input type="text" value="" name="ticket" id="ticket"
       placeholder="№ Білету">
   </div>
 
   <div>
-    <label for="student_group">Група Студента</label>
+    <label for="student_group">Група Студента*</label>
     <select name="student_group" id="student_group">
       <option value="">Виберіть Групу</option>
       {% for group in groups %}
