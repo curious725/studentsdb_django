@@ -17,12 +17,14 @@
     <label for="first_name">Ім'я*</label>
     <input type="text" value="" name="first_name" id="first_name"
       placeholder="Введіть ваше ім'я">
+    <span class="help-block">{{ errors.first_name }}</span>
   </div>
 
   <div>
     <label for="last_name">Прізвище*</label>
     <input type="text" value="" name="last_name" id="last_name"
       placeholder="Введіть ваше прізвище">
+    <span class="help-block">{{ errors.last_name }}</span>
   </div>
 
   <div>
@@ -35,6 +37,7 @@
     <label for="birthday">День народження*</label>
     <input type="text" value="" name="birthday" id="birthday"
       placeholder="Напр. 1990-01-01">
+    <span class="help-block">{{ errors.birthday }}</span>
   </div>
 
   <div>
@@ -46,6 +49,7 @@
     <label for="ticket">Білет*</label>
     <input type="text" value="" name="ticket" id="ticket"
       placeholder="№ Білету">
+    <span class="help-block">{{ errors.ticket }}</span>
   </div>
 
   <div>
@@ -56,6 +60,7 @@
       <option value="{{ group.id }}">{{ group.title }}</option>
       {% endfor %}
     </select>
+    <span class="help-block">{{ errors.student_group }}</span>
   </div>
 
   <div>
