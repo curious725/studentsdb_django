@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 from ..models import Student, Group
 
 from django.shortcuts import render
@@ -74,6 +75,11 @@ def students_add(request):
             if not birthday:
                 errors['birthday'] = u"Дата народження є обов'язковою"
             else:
+                try:
+                    datetime.strptime(birthday, '%Y-%m-%d')
+                except Exception:
+                    errors['birthday'] = u"Введіть коректний формат дати " \
+                        u"(напр. 1993-12-30)"
                 data['birthday'] = birthday
 
             ticket = request.POST.get('ticket', '').strip()
@@ -86,7 +92,11 @@ def students_add(request):
             if not student_group:
                 errors['student_group'] = u"Оберіть групу для студента"
             else:
-                data['student_group'] = Group.objects.get(pk=student_group)
+                groups = Group.objects.filter(pk=student_group)
+                if len(groups) != 1:
+                    errors['student_group'] = u"Оберіть групу для студента"
+                else:
+                    data['student_group'] = groups[0]
 
             photo = request.FILES.get('photo')
             if photo:
