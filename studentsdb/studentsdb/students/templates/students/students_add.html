@@ -20,50 +20,55 @@
 
 
 <form  action="{% url 'students_add' %}"  method="post"
-  enctype="multipart/form-data">
+  enctype="multipart/form-data" class="form-horizontal">
 
   {% csrf_token %}
 
-  <div>
+  <div class="form-group">
     <label for="first_name">Ім'я*</label>
     <input type="text" value="{{ request.POST.first_name }}" 
-      name="first_name" id="first_name" placeholder="Введіть ваше ім'я">
+      name="first_name" id="first_name" placeholder="Введіть ваше ім'я"
+      class="form-control">
     <span class="help-block">{{ errors.first_name }}</span>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="last_name">Прізвище*</label>
     <input type="text" value="{{ request.POST.last_name }}"
-      name="last_name" id="last_name" placeholder="Введіть ваше прізвище">
+      name="last_name" id="last_name" placeholder="Введіть ваше прізвище"
+      class="form-control">
     <span class="help-block">{{ errors.last_name }}</span>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="middle_name">По-батькові</label>
     <input type="text" value="{{ request.POST.middle_name }}"
-    name="middle_name" id="middle_name" placeholder="Введіть по-батькові">
+      name="middle_name" id="middle_name" placeholder="Введіть по-батькові"
+      class="form-control">
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="birthday">День народження*</label>
     <input type="text" value="{{ request.POST.birthday }}"
-      name="birthday" id="birthday" placeholder="Напр. 1990-01-01">
+      name="birthday" id="birthday" placeholder="Напр. 1990-01-01"
+      class="form-control">
     <span class="help-block">{{ errors.birthday }}</span>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="photo">Фото</label>
-    <input type="file" value="" name="photo" id="photo">
+    <input type="file" value="" name="photo" id="photo"
+      class="form-control">
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="ticket">Білет*</label>
-    <input type="text" value="{{ request.POST.ticket }}" name="ticket" id="ticket"
-      placeholder="№ Білету">
+    <input type="text" value="{{ request.POST.ticket }}" name="ticket"
+      id="ticket" placeholder="№ Білету" class="form-control">
     <span class="help-block">{{ errors.ticket }}</span>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="student_group">Група Студента*</label>
     <select name="student_group" id="student_group" class="form-control">
       <option value="">Виберіть Групу</option>
@@ -79,14 +84,14 @@
     <span class="help-block">{{ errors.student_group }}</span>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="notes">Нотатки</label>
     <textarea name="notes" id="notes"
       class="form-control">{{ request.POST.notes }}
     </textarea>
   </div>
 
-  <div>
+  <div class="form-group">
     <input type="submit" value="Додати" name="add_button">
     <button type="submit" name="cancel_button">Скасувати</button>
   </div>
