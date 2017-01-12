@@ -46,7 +46,11 @@ def students_add(request):
         # Якщо кнопка скасувати була натиснута:
         if request.POST.get('cancel_button') is not None:
             # Повертаємо користувача до списку студентів
-            return HttpResponseRedirect(reverse('home'))
+            return HttpResponseRedirect(
+                u"{}?status_message=Додавання студента скасовано!".format(
+                    reverse('home')
+                )
+            )
 
         # Якщо кнопка додати була натиснута:
         if request.POST.get('add_button') is not None:
@@ -109,7 +113,11 @@ def students_add(request):
                 # Зберігаємо студента в базу
                 student.save()
                 # Повертаємо користувача до списку студентів
-                return HttpResponseRedirect(reverse('home'))
+                return HttpResponseRedirect(
+                    u"{}?status_message=Студента успішно додано!".format(
+                        reverse('home')
+                    )
+                )
 
             # Якщо дані були введені некоректно:
             else:
