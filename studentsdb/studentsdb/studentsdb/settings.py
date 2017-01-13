@@ -95,6 +95,8 @@ TEMPLATE_CONTEXT_PROCESSORS = \
         "studentsdb.context_processors.students_proc"
     )
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 try:
     from local_settings import *
 except ImportError:
