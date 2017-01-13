@@ -28,7 +28,11 @@ urlpatterns = patterns(
         name='groups_edit'),
     url(r'^groups/(?P<gid>\d+)/delete/$',
         'students.views.groups.groups_delete',
-        name='groups_delete')
+        name='groups_delete'),
+
+    # Contact Admin form
+    url(r'^contact-admin$', 'students.views.contact_admin.contact_admin',
+        name='contact_admin'),
 
 )
 
