@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms import ModelForm
 
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, DeleteView
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -68,6 +68,16 @@ class StudentUpdateView(UpdateView):
             return super(StudentUpdateView, self).post(
                 request, *args, **kwargs
             )
+
+
+class StudentDeleteView(DeleteView):
+    model = Student
+    template_name = 'students/students_confirm_delete.html'
+
+    def get_success_url(self):
+        return u'{}?status_message=Студента успішно видалено!'.format(
+            reverse('home')
+        )
 
 
 def students_list(request):

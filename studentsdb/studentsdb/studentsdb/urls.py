@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from students.views.students import StudentUpdateView
+from students.views.students import StudentUpdateView, StudentDeleteView
 
 urlpatterns = patterns(
     '',
@@ -17,8 +17,8 @@ urlpatterns = patterns(
     url(r'^students/(?P<sid>\d+)/edit/$',
         StudentUpdateView.as_view(),
         name='students_edit'),
-    url(r'^students/(?P<sid>\d+)/delete/$',
-        'students.views.students.students_delete',
+    url(r'^students/(?P<pk>\d+)/delete/$',
+        StudentDeleteView.as_view(),
         name='students_delete'),
 
 
