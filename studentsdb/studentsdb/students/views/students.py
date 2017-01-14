@@ -19,8 +19,6 @@ from crispy_forms.bootstrap import FormActions
 class StudentUpdateForm(ModelForm):
     class Meta:
         model = Student
-        slug_field = 'id'
-        slug_url_kwarg = 'sid'
 
     def __init__(self, *args, **kwargs):
         super(StudentUpdateForm, self).__init__(*args, **kwargs)
@@ -29,7 +27,7 @@ class StudentUpdateForm(ModelForm):
 
         # set form tag attributes
         self.helper.form_action = reverse(
-            'students_edit', kwargs={'id': kwargs['instance'].id}
+            'students_edit', kwargs={'pk': kwargs['instance'].id}
         )
         self.helper.form_method = 'POST'
         self.helper.form_class = 'form-horizontal'
