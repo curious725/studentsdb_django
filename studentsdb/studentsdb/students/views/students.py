@@ -7,8 +7,31 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from django.views.generic import UpdateView
 
 # Views for Students
+
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    template_name = 'students/students_edit.html'
+
+    def get_success_url(self):
+        return u'{}?status_message=Студента успішно збережено!'.format(
+            reverse('home')
+        )
+
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            return HttpResponseRedirect(
+                u'{}?status_message=Редагування студента відмінено'.format(
+                    reverse('home')
+                )
+            )
+        else:
+            return super(StudentUpdateView, self).post(
+                request, *args, **kwargs
+            )
 
 
 def students_list(request):
